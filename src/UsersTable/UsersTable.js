@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './UsersTable.sass';
+import './UsersTableStyles.sass';
 import { useSelector, useDispatch } from 'react-redux';
 import { isLoaded, users, ifError } from '../actions/index';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';

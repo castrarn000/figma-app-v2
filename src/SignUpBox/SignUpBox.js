@@ -1,5 +1,5 @@
 import React from 'react';
-import './SignUpBox.sass';
+import './SignUpBoxStyles.sass';
 
 const SignUpBox = () => {
     return (
