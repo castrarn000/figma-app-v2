@@ -7,8 +7,10 @@ import UsersTable from './UsersTable/UsersTable';
 function App() {
   return (
     <div className="App">
-      <NavigationBar />
-      <SignUpBox />
+      <div className='fixedComponets'>
+        <NavigationBar />
+        <SignUpBox />
+      </div>
       <UsersTable />
     </div>
   );

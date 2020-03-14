@@ -44,44 +44,46 @@ const UsersTable = () => {
     }
 
     return (ifLoaded ?
-        <div className='tableWrapper'>
-            Users
+        <div className='outerScroller'>
+            <div className='tableWrapper'>
+                Users
             <div className='tableBlock'>
-                <SortIcon /> Users
+                    <SortIcon /> Users
                 <TableContainer >
-                    <Table aria-label='All users tabble' style={{ borderTop: '1px solid lightgray' }}>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell> Name <ArrowDownwardIcon /> </TableCell>
-                                <TableCell> Email </TableCell>
-                                <TableCell> Phone </TableCell>
-                                <TableCell> Company Tags </TableCell>
-                                <TableCell> Website </TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {allUsers.map(user => (
-                                <TableRow key={user.id}>
-                                    <TableCell component="th" scope="row">
-                                        {user.name}
-                                    </TableCell>
-                                    <TableCell>
-                                        {user.email}
-                                    </TableCell>
-                                    <TableCell>
-                                        {user.phone}
-                                    </TableCell>
-                                    <TableCell>
-                                        {user.company.bs}
-                                    </TableCell>
-                                    <TableCell>
-                                        {user.website}
-                                    </TableCell>
+                        <Table aria-label='All users tabble' style={{ borderTop: '1px solid lightgray' }}>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell> Name <ArrowDownwardIcon /> </TableCell>
+                                    <TableCell> Email </TableCell>
+                                    <TableCell> Phone </TableCell>
+                                    <TableCell> Company Tags </TableCell>
+                                    <TableCell> Website </TableCell>
                                 </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
+                            </TableHead>
+                            <TableBody>
+                                {allUsers.map(user => (
+                                    <TableRow key={user.id}>
+                                        <TableCell component="th" scope="row">
+                                            {user.name}
+                                        </TableCell>
+                                        <TableCell>
+                                            {user.email}
+                                        </TableCell>
+                                        <TableCell>
+                                            {user.phone}
+                                        </TableCell>
+                                        <TableCell>
+                                            {user.company.bs}
+                                        </TableCell>
+                                        <TableCell>
+                                            {user.website}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </div>
             </div>
         </div>
         :
