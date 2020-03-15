@@ -2,7 +2,7 @@
 
 To demostrate where I am now as a front end developer. 
 
-## Purpose of Application
+## Exercise Summary
 
 To make a react applicaton to replicate as closely as possible the website https://www.figma.com/file/dYr7l3sesV7Bo0xOM26LFK/users?node-id=0%3A1 in a 8 hour period. 
 
