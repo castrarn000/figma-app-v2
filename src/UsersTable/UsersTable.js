@@ -3,6 +3,7 @@ import './UsersTableStyles.sass';
 import { useSelector, useDispatch } from 'react-redux';
 import { isLoaded, users, ifError } from '../actions/index';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SortIcon from '@material-ui/icons/Sort';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -44,44 +45,50 @@ const UsersTable = () => {
     }
 
     return (ifLoaded ?
-        <div className='tableWrapper'>
-            Users
+        <div className='outerScroller'>
+            <div className='tableWrapper'>
+                Users
             <div className='tableBlock'>
-                <SortIcon /> Users
-                <TableContainer >
-                    <Table aria-label='All users tabble' style={{ borderTop: '1px solid lightgray' }}>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell> Name <ArrowDownwardIcon /> </TableCell>
-                                <TableCell> Email </TableCell>
-                                <TableCell> Phone </TableCell>
-                                <TableCell> Company Tags </TableCell>
-                                <TableCell> Website </TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {allUsers.map(user => (
-                                <TableRow key={user.id}>
-                                    <TableCell component="th" scope="row">
-                                        {user.name}
-                                    </TableCell>
-                                    <TableCell>
-                                        {user.email}
-                                    </TableCell>
-                                    <TableCell>
-                                        {user.phone}
-                                    </TableCell>
-                                    <TableCell>
-                                        {user.company.bs}
-                                    </TableCell>
-                                    <TableCell>
-                                        {user.website}
-                                    </TableCell>
+                    <div className='innerUsers'>
+                        <SortIcon />  &nbsp;  Users
+                    </div>
+                    <TableContainer className='tableUsers'>
+                        <Table aria-label='All users tabble' style={{ borderTop: '1px solid lightgray' }}>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell> Name <ArrowDownwardIcon className='arrowDownIcon'/> </TableCell>
+                                    <TableCell> Email </TableCell>
+                                    <TableCell> Phone </TableCell>
+                                    <TableCell> Company Tags </TableCell>
+                                    <TableCell> Website </TableCell>
                                 </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
+                            </TableHead>
+                            <TableBody>
+                                {allUsers.map(user => (
+                                    <TableRow key={user.id}>
+                                        <TableCell component='th' scope='row'>
+                                            <span className='usersNames'>
+                                                <AccountCircleIcon fontSize='large'/> {user.name}
+                                            </span>
+                                        </TableCell>
+                                        <TableCell>
+                                            {user.email}
+                                        </TableCell>
+                                        <TableCell>
+                                            {user.phone}
+                                        </TableCell>
+                                        <TableCell>
+                                            {user.company.bs}
+                                        </TableCell>
+                                        <TableCell>
+                                            {user.website}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </div>
             </div>
         </div>
         :
