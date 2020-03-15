@@ -14,7 +14,7 @@ HTML5 <br />
 SASS - CSS processor<br />
 Material UI - front end library<br />
 Fetch API - to get data<br />
-Redux - for ifLoaded state, error state, and where users data is stored as an array  <br />
+Redux - for loaded state, error state, and where users data is stored as an array  <br />
 
 ## Available Scripts
 
