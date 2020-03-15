@@ -3,6 +3,7 @@ import './UsersTableStyles.sass';
 import { useSelector, useDispatch } from 'react-redux';
 import { isLoaded, users, ifError } from '../actions/index';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SortIcon from '@material-ui/icons/Sort';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -48,12 +49,14 @@ const UsersTable = () => {
             <div className='tableWrapper'>
                 Users
             <div className='tableBlock'>
-                    <SortIcon /> Users
-                <TableContainer >
+                    <div className='innerUsers'>
+                        <SortIcon />  &nbsp;  Users
+                    </div>
+                    <TableContainer className='tableUsers'>
                         <Table aria-label='All users tabble' style={{ borderTop: '1px solid lightgray' }}>
                             <TableHead>
                                 <TableRow>
-                                    <TableCell> Name <ArrowDownwardIcon /> </TableCell>
+                                    <TableCell> Name <ArrowDownwardIcon className='arrowDownIcon'/> </TableCell>
                                     <TableCell> Email </TableCell>
                                     <TableCell> Phone </TableCell>
                                     <TableCell> Company Tags </TableCell>
@@ -63,8 +66,10 @@ const UsersTable = () => {
                             <TableBody>
                                 {allUsers.map(user => (
                                     <TableRow key={user.id}>
-                                        <TableCell component="th" scope="row">
-                                            {user.name}
+                                        <TableCell component='th' scope='row'>
+                                            <span className='usersNames'>
+                                                <AccountCircleIcon fontSize='large'/> {user.name}
+                                            </span>
                                         </TableCell>
                                         <TableCell>
                                             {user.email}
