@@ -8,13 +8,13 @@ To make a react applicaton to replicate as closely as possible the website https
 
 ## Stack Used 
 
-Create React App - for initial setup 
-React 
-HTML5 
-SASS - CSS processor
-Material UI - front end library
-Fetch API - to get data
-Redux - for ifLoaded state, error state, and where users data is stored as an array  
+Create React App - for initial setup <br />
+React <br />
+HTML5 <br />
+SASS - CSS processor<br />
+Material UI - front end library<br />
+Fetch API - to get data<br />
+Redux - for ifLoaded state, error state, and where users data is stored as an array  <br />
 
 ## Available Scripts
 
