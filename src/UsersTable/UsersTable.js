@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './UsersTableStyles.sass';
 import { useSelector, useDispatch } from 'react-redux';
 import { isLoaded, users, ifError } from '../actions/index';
@@ -18,12 +18,21 @@ const UsersTable = () => {
     const allUsers = useSelector(state => state.users);
     const dispath = useDispatch();
 
+    const mainRef = useRef(null);
+
     const USERS_API = 'https://jsonplaceholder.typicode.com/users';
 
     useEffect(() => {
         loadUsers();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    useEffect(() => {
+        if(ifLoaded){
+            console.log(`come in`)
+            mainRef.current.scrollIntoView({inline: 'center'});
+        }
+      });
 
     function loadUsers() {
         fetch(USERS_API)
@@ -45,10 +54,10 @@ const UsersTable = () => {
     }
 
     return (ifLoaded ?
-        <div className='outerScroller'>
-            <div className='tableWrapper'>
+        <div className='tableContainer'>
+            <div className='tableWrapper' ref={mainRef} tabIndex='-1'>
                 Users
-            <div className='tableBlock'>
+                <div className='tableBlock'>
                     <div className='innerUsers'>
                         <SortIcon />  &nbsp;  Users
                     </div>
@@ -56,7 +65,7 @@ const UsersTable = () => {
                         <Table aria-label='All users tabble' style={{ borderTop: '1px solid lightgray' }}>
                             <TableHead>
                                 <TableRow>
-                                    <TableCell> Name <ArrowDownwardIcon className='arrowDownIcon'/> </TableCell>
+                                    <TableCell> Name <ArrowDownwardIcon className='arrowDownIcon' /> </TableCell>
                                     <TableCell> Email </TableCell>
                                     <TableCell> Phone </TableCell>
                                     <TableCell> Company Tags </TableCell>
@@ -68,7 +77,7 @@ const UsersTable = () => {
                                     <TableRow key={user.id}>
                                         <TableCell component='th' scope='row'>
                                             <span className='usersNames'>
-                                                <AccountCircleIcon fontSize='large'/> {user.name}
+                                                <AccountCircleIcon fontSize='large' /> {user.name}
                                             </span>
                                         </TableCell>
                                         <TableCell>
@@ -93,7 +102,7 @@ const UsersTable = () => {
         </div>
         :
         <div>
-            still waiting
+                still waiting
         </div>
     );
 }
