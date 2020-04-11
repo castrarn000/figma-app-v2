@@ -17,15 +17,67 @@ $white-font: white
 .standardButton 
     height: $standard-height
     width: $standard-width
+    border: none
+    background-color: $nav-background
+    outline: none
+  
+.menuSVG
+    fill: white
+    height: 20px
 
-.menuIcon
+.subMenuClose
+    display: none
+
+.show
+    display: block
+    position: absolute
+    background-color: $nav-background
+    margin-top: 46px
+    margin-left: 8px
+    width: 240px
+    height: 64px
+    align-content: center
+
+.show:after 
+	content: ''
+	position: absolute
+	top: 0
+	left: 6%
+	width: 0
+	height: 0
+	border: 5px solid transparent
+	border-bottom-color: $nav-background
+	border-top: 0
+	margin-left: -5px
+	margin-top: -5px
+
+.subButton
+    margin-top: 8px
+    background-color: $nav-background
+    border: none
     color: $white-font
+    width: 100%
+    text-align: left
+    font-size: 14px
+    &:hover
+        background-color: #18a0fb
+
+.panSVG
+    fill: white
+    height: 23px
 
 .growMenu
     position: fixed
     margin-left: -12px
     margin-top: 10px
     background-color: $nav-background
+
+.checkSpan
+    margin-right: 16px
+
+.checkedSVG
+    fill: $white-font
+    height: 14px
 
 .panMenuIcon
     color: $white-font
