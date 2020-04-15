@@ -20,13 +20,51 @@ $white-font: white
     border: none
     background-color: $nav-background
     outline: none
-  
+
+.menuButtonHover
+    &:hover
+        background-color: black
+        .menuHover
+            opacity: 1
+            margin-top: 14px
+            transition: opacity 0s linear 1s
+            transition: margin-top 0s linear 1s
+
+.menuHover
+    opacity: 1
+    display: flex
+    position: absolute
+    height: 24px
+    width: 108px
+    margin-top: -72px
+    background-color: black
+    font-size: 12px
+    color: white
+    align-items: center
+    justify-content: center
+
+.menuHover:after 
+    content: ''
+    position: absolute
+    top: 0
+    left: 12%
+    width: 0
+    height: 0
+    border: 5.5px solid transparent
+    border-bottom-color: black
+    border-top: 0
+    margin-left: -5.5px
+    margin-top: -5.5px
+
 .menuSVG
     fill: white
     height: 20px
 
-.subMenuClose
+.displayNone
     display: none
+
+.displayBlock
+    display: block
 
 .show
     display: block
@@ -34,33 +72,76 @@ $white-font: white
     background-color: $nav-background
     margin-top: 46px
     margin-left: 8px
+    margin-bottom: 0px
+    padding: 0px
     width: 240px
     height: 64px
     align-content: center
 
 .show:after 
-	content: ''
-	position: absolute
-	top: 0
-	left: 6%
-	width: 0
-	height: 0
-	border: 5px solid transparent
-	border-bottom-color: $nav-background
-	border-top: 0
-	margin-left: -5px
-	margin-top: -5px
+    content: ''
+    position: absolute
+    top: 0
+    left: 6%
+    width: 0
+    height: 0
+    border: 5px solid transparent
+    border-bottom-color: $nav-background
+    border-top: 0
+    margin-left: -5px
+    margin-top: -5px
 
-.subButton
+.keyColor
+    color: lightgray
+
+.topMenu
     margin-top: 8px
+    
+.subButton
     background-color: $nav-background
     border: none
     color: $white-font
     width: 100%
+    height: 24px
     text-align: left
-    font-size: 14px
+    font-size: 12px
     &:hover
         background-color: #18a0fb
+
+.handButtonHover
+    &:hover
+        .handHover
+            opacity: 1
+            margin-top: 14px
+            transition: opacity 0s linear 1s
+            transition: margin-top 0s linear 1s
+
+.handHover
+    opacity: 0
+    display: flex
+    position: absolute
+    height: 24px
+    width: 88px
+    margin-top: -72px
+    margin-left: -28px
+    background-color: black
+    font-size: 12px
+    color: white
+    align-items: center
+    justify-content: center
+
+.handHover:after 
+    content: ''
+    position: absolute
+    top: 0
+    left: 50%
+    width: 0
+    height: 0
+    border: 5.5px solid transparent
+    border-bottom-color: black
+    border-top: 0
+    margin-left: -5.5px
+    margin-top: -5.5px
 
 .panSVG
     fill: white
@@ -72,15 +153,14 @@ $white-font: white
     margin-top: 10px
     background-color: $nav-background
 
-.checkSpan
-    margin-right: 16px
+.spacer
+    margin-left: 20px
 
 .checkedSVG
     fill: $white-font
     height: 14px
-
-.panMenuIcon
-    color: $white-font
+    margin-left: 4px
+    margin-right: 4px
 
 .navTitle
     width: 20%
@@ -88,12 +168,109 @@ $white-font: white
     text-align: center
     margin: auto
 
-.helpIcon
-    color: #ff4500
+.anonymousButton
+    margin-right: 6px
+    &:hover
+        .anonymousHover
+            opacity: 1
+            margin-top: 10px
+            transition: opacity 0s linear 1s
+            transition: margin-top 0s linear 1s
 
-.rightArrowIcon
+.anonymousHover
+    opacity: 0
+    display: flex
+    position: absolute
+    height: 24px
+    width: 80px
+    margin-top: -72px
+    margin-left: -28px
+    background-color: black
+    font-size: 12px
+    color: white
+    align-items: center
+    justify-content: center
+
+.anonymousHover:after 
+    content: ''
+    position: absolute
+    top: 0
+    left: 50%
+    width: 0
+    height: 0
+    border: 5.5px solid transparent
+    border-bottom-color: black
+    border-top: 0
+    margin-left: -5.5px
+    margin-top: -5.5px
+
+.helpSVG
+    fill: #ff4500
+
+.logInButton
+    height: 32px
+    width: 64px
+    border: .6px solid $white-font
+    border-radius: 5px
     color: $white-font
-    font-size: 25px
+    font-size: 12px
+    margin-top: 3px
 
-.expandIcon
+.playButton
+    &:hover
+        background-color: black
+        .playHover
+            opacity: 1
+            margin-top: 10px
+            transition: opacity 0s linear 1s
+            transition: margin-top 0s linear 1s
+
+.playHover
+    opacity: 0
+    display: flex
+    position: absolute
+    height: 24px
+    width: 56px
+    margin-top: -72px
+    margin-left: -16px
+    background-color: black
+    font-size: 12px
+    color: white
+    align-items: center
+    justify-content: center
+
+.playHover:after 
+    content: ''
+    position: absolute
+    top: 0
+    left: 50%
+    width: 0
+    height: 0
+    border: 5.5px solid transparent
+    border-bottom-color: black
+    border-top: 0
+    margin-left: -5.5px
+    margin-top: -5.5px
+
+.playArrowSVG
+    fill: $white-font
+
+.expandButton
+    display: flex
+    justify-content: center
+    width: 60px
+    height: 40px
+    color: lightgray
     font-size: 10px
+    background-color: $nav-background
+    border: none
+    outline: none
+    &:hover
+        background-color: black
+        .arrowDownSVG
+            margin-top: 0px
+
+.arrowDownSVG
+    fill: $white-font
+    height: 16px
+    margin-top: -3px
