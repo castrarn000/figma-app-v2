@@ -158,7 +158,7 @@ $white-font: white
 
 .checkedSVG
     fill: $white-font
-    height: 14px
+    height: 12px
     margin-left: 4px
     margin-right: 4px
 
@@ -270,7 +270,91 @@ $white-font: white
         .arrowDownSVG
             margin-top: 0px
 
+.zoomButtonUnClicked
+    background-color: $nav-background
+
+.zoomButtonClicked
+    background-color: #18a0fb
+    &:hover
+        background-color: #18a0fb
+
 .arrowDownSVG
     fill: $white-font
     height: 16px
     margin-top: -3px
+
+.zoomMemu
+    right: 4px
+    position: absolute 
+    border-radius: 2px
+    margin-top: 45px
+    background-color: $nav-background
+    height: 372px
+    width: 232px
+
+.zoomMemu:after 
+    content: ''
+    position: absolute
+    top: 0
+    left: 95%
+    width: 0
+    height: 0
+    border: 5.5px solid transparent
+    border-bottom-color: $nav-background
+    border-top: 0
+    margin-left: -5.5px
+    margin-top: -5.5px
+
+.zoomButton
+    width: 100%
+    height: 23px
+    text-align: left
+    background-color: $nav-background
+    color: $white-font
+    border: none
+    font-size: 12px
+    &:hover
+        background-color: #18a0fb
+
+.zoomInput
+    display: flex
+    margin-top: 8px
+    margin-right: auto
+    margin-left: auto
+    background-color: $nav-background
+    border: 2px solid #18a0fb
+    color: $white-font
+    width: 80%
+    height: 18px
+    font-size: 12px
+
+.keyShortCuts
+    float: right
+    color: #C0C0C0
+
+.arrowRightSVG
+    fill: white
+    height: 12px
+    float: right
+
+.horizontalLines
+    border-color: gray
+    border-width: .5px
+
+.dotSVG
+    fill: white
+    height: 6px
+    margin-left: 6px
+    margin-right: 10px
+
+.zoomSpacer
+    margin-right: 20px
+
+.zoomDisplayinline
+    display: inline-block 
+
+.zoomCheckedSVG
+    fill: $white-font
+    height: 12px
+    margin-left: 4px
+    margin-right: 8px

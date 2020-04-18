@@ -2,10 +2,27 @@ import React, { useState, useEffect, useRef } from 'react';
 import './NavigationBarStyles.sass';
 
 const NavigationBar = () => {
+    const anchorRef = useRef(null);
+    const zoomMenuRef = useRef(null);
+
     const [menuToggle, setMenuToggle] = useState('displayNone');
     const [displayPage1Select, setPage1] = useState('displayBlock');
     const [displaySymbolsSelect, setSymbols] = useState('displayNone');
-    const anchorRef = useRef(null);
+
+    const [zoomToggle, setZoomToggle] = useState('displayNone');
+    const [zoomClicked, setZoomClicked] = useState('zoomButtonUnClicked');
+    const [zoomButtonChecked, setButtonChecked] = useState([
+        {spacerClass: 'displayNone', svgClass: 'zoomDisplayinline'},
+        {spacerClass: 'displayNone', svgClass: 'zoomDisplayinline'},
+        {spacerClass: 'displayNone', svgClass: 'zoomDisplayinline'},
+        {spacerClass: 'displayNone', svgClass: 'zoomDisplayinline'},
+        {spacerClass: 'displayNone', svgClass: 'zoomDisplayinline'},
+        {spacerClass: 'displayNone', svgClass: 'zoomDisplayinline'},
+        {spacerClass: 'displayNone', svgClass: 'zoomDisplayinline'},
+        {spacerClass: 'displayNone', svgClass: 'zoomDisplayinline'},
+        {spacerClass: 'displayNone', svgClass: 'zoomDisplayinline'},
+        {spacerClass: 'displayNone', svgClass: 'zoomDisplayinline'},
+    ]);
 
     const handleToggle = () => {
         if (menuToggle === 'displayNone') {
@@ -45,6 +62,49 @@ const NavigationBar = () => {
         setMenuToggle('displayNone');
         setSymbols('displayBlock')
         setPage1('displayNone')
+    };
+
+    const handleZoomInput = (event) => {
+        if (event.key === 'Enter') {
+            console.log('got in enter')
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('click', handleZoomClose);
+        return () => {
+            document.removeEventListener('click', handleZoomClose)
+        }
+    });
+
+    const handleZoomClose = (event) => {
+        if (zoomMenuRef.current && zoomMenuRef.current.contains(event.target)) {
+            return;
+        }
+        setZoomClicked('zoomButtonUnClicked')
+        setZoomToggle('displayNone');
+    };
+
+    const handleZoomToggle = () => {
+        if (zoomToggle === 'displayNone') {
+            setZoomToggle('displayBlock');
+            setZoomClicked('zoomButtonClicked')
+        } else {
+            setZoomToggle('displayNone');
+            setZoomClicked('zoomButtonUnClicked')
+        }
+    };
+    
+    const handleCheckedToggle = (buttonID) => {
+        let copy = Object.assign(zoomButtonChecked);
+        if(copy[buttonID].spacerClass === 'displayNone'){
+            copy[buttonID].spacerClass = 'zoomDisplayinline';
+            copy[buttonID].svgClass = 'displayNone';
+        } else {
+            copy[buttonID].spacerClass = 'displayNone';
+            copy[buttonID].svgClass = 'zoomDisplayinline';
+        }
+        setButtonChecked(copy);
     };
 
     return (
@@ -103,9 +163,102 @@ const NavigationBar = () => {
                 </div>
             </button>
 
-            <button className='expandButton'>
+            <button className={`expandButton ${zoomClicked}`} onClick={handleZoomToggle} ref={zoomMenuRef}>
                 100% <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className='arrowDownSVG'><path d='M0 0h24v24H0V0z' fill='none' /><path d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z' /></svg>
             </button>
+            <div className={`${zoomToggle} + zoomMemu`}>
+                <input type='text' defaultValue='100%' className='zoomInput' onKeyPress={handleZoomInput} />
+
+                <hr className='horizontalLines' />
+
+                <button className='zoomButton'>
+                    <span className='zoomSpacer'> &nbsp;</span>
+                    Zoom in
+                    <span className='keyShortCuts'> + </span>
+                </button>
+
+                <button className='zoomButton'>
+                    <span className='zoomSpacer'> &nbsp;</span>
+                    Zoom out
+                    <span className='keyShortCuts'> - </span>
+                </button>
+
+                <button className='zoomButton'>
+                    <span className='zoomSpacer'> &nbsp;</span>
+                    Zoom to Fit
+                    <span className='keyShortCuts'> 1 </span>
+                </button>
+
+                <button className='zoomButton' onClick={() => handleCheckedToggle(0)}>
+                    <span className={`${zoomButtonChecked[0].spacerClass} zoomSpacer`}> &nbsp;</span>
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className={`${zoomButtonChecked[0].svgClass} zoomCheckedSVG`}><path d='M0 0h24v24H0z' fill='none' /><path d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z' /></svg>
+                    Zoom to 50%
+                </button>
+
+                <button className='zoomButton' onClick={() => handleCheckedToggle(1)}>
+                <span className={`${zoomButtonChecked[1].spacerClass} zoomSpacer`}> &nbsp;</span>
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className={`${zoomButtonChecked[1].svgClass} zoomCheckedSVG`}><path d='M0 0h24v24H0z' fill='none' /><path d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z' /></svg>
+                    Zoom to 100%
+                    <span className='keyShortCuts'> &#48; </span>
+                </button>
+
+                <button className='zoomButton' onClick={() => handleCheckedToggle(2)}>
+                <span className={`${zoomButtonChecked[2].spacerClass} zoomSpacer`}> &nbsp;</span>
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className={`${zoomButtonChecked[2].svgClass} zoomCheckedSVG`}><path d='M0 0h24v24H0z' fill='none' /><path d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z' /></svg>
+                    Zoom to 200%
+                </button>
+
+                <hr className='horizontalLines' />
+
+                <button className='zoomButton' onClick={() => handleCheckedToggle(3)}>
+                    <span className={`${zoomButtonChecked[3].spacerClass} zoomSpacer`}> &nbsp;</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={`${zoomButtonChecked[3].svgClass} dotSVG`}><path d="M24 24H0V0h24v24z" fill="none" /><circle cx="12" cy="12" r="8" /></svg>
+                    Pixel Preview
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className='arrowRightSVG'><path d='M8 5v14l11-7z' /><path d='M0 0h24v24H0z' fill='none' /></svg>
+                </button>
+
+                <button className='zoomButton' onClick={() => handleCheckedToggle(4)}>
+                <span className={`${zoomButtonChecked[4].spacerClass} zoomSpacer`}> &nbsp;</span>
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className={`${zoomButtonChecked[4].svgClass} zoomCheckedSVG`}><path d='M0 0h24v24H0z' fill='none' /><path d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z' /></svg>
+                    Pixel Grid
+                    <span className='keyShortCuts'> Ctrl+' </span>
+                </button>
+
+                <button className='zoomButton' onClick={() => handleCheckedToggle(5)}>
+                <span className={`${zoomButtonChecked[5].spacerClass} zoomSpacer`}> &nbsp;</span>
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className={`${zoomButtonChecked[5].svgClass} zoomCheckedSVG`}><path d='M0 0h24v24H0z' fill='none' /><path d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z' /></svg>
+                    Snap to Pixel Grid
+                    <span className='keyShortCuts'> Ctrl+Shift+' </span>
+                </button>
+
+                <button className='zoomButton' onClick={() => handleCheckedToggle(6)}>
+                <span className={`${zoomButtonChecked[6].spacerClass} zoomSpacer`}> &nbsp;</span>
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className={`${zoomButtonChecked[6].svgClass} zoomCheckedSVG`}><path d='M0 0h24v24H0z' fill='none' /><path d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z' /></svg>
+                    Layout Grids
+                    <span className='keyShortCuts'> Ctrl+Shift+4 </span>
+                </button>
+
+                <button className='zoomButton' onClick={() => handleCheckedToggle(7)}>
+                <span className={`${zoomButtonChecked[7].spacerClass} zoomSpacer`}> &nbsp;</span>
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className={`${zoomButtonChecked[7].svgClass} zoomCheckedSVG`}><path d='M0 0h24v24H0z' fill='none' /><path d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z' /></svg>
+                    Rulers
+                    <span className='keyShortCuts'> Shift+R </span>
+                </button>
+
+                <button className='zoomButton' onClick={() => handleCheckedToggle(8)}>
+                <span className={`${zoomButtonChecked[8].spacerClass} zoomSpacer`}> &nbsp;</span>
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className={`${zoomButtonChecked[8].svgClass} zoomCheckedSVG`}><path d='M0 0h24v24H0z' fill='none' /><path d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z' /></svg>
+                    Outlines
+                    <span className='keyShortCuts'> Ctrl+Shift+3 </span>
+                </button>
+
+                <button className='zoomButton' onClick={() => handleCheckedToggle(9)}>
+                    <span className={`${zoomButtonChecked[9].spacerClass} zoomSpacer`}> &nbsp;</span>
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className={`${zoomButtonChecked[9].svgClass} zoomCheckedSVG`}><path d='M0 0h24v24H0z' fill='none' /><path d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z' /></svg>
+                    Multiplayers Cursors
+                    <span className='keyShortCuts'> Ctrl+Alt+\ </span>
+                </button>
+            </div>
         </div>
     );
 }
