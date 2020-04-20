@@ -1,14 +1,15 @@
-$nav-font: white
 $nav-background: #2c2c2c
+$nav-blue: #18a0fb
 $standard-height: 40px
 $standard-width: 40px
 $white-font: white
+$standard-font-size: 12px
 
 .navBar
     display: flex
-    height: 40px
+    height: $standard-height
     background-color: $nav-background
-    color: $nav-font
+    color: $white-font
     left: 0px
     right: 0px
     top: 0px
@@ -30,18 +31,22 @@ $white-font: white
             transition: opacity 0s linear 1s
             transition: margin-top 0s linear 1s
 
-.menuHover
-    opacity: 1
-    display: flex
+.standardBubbleSquare
     position: absolute
+    font-size: $standard-font-size
+    color: $white-font
+
+.standardDisplayFlex
+    display: flex
+    justify-content: center
+    align-items: center
+    opacity: 0
+    background-color: black
+
+.menuHover
     height: 24px
     width: 108px
     margin-top: -72px
-    background-color: black
-    font-size: 12px
-    color: white
-    align-items: center
-    justify-content: center
 
 .menuHover:after 
     content: ''
@@ -57,39 +62,38 @@ $white-font: white
     margin-top: -5.5px
 
 .menuSVG
-    fill: white
+    fill: $white-font
     height: 20px
 
 .displayNone
     display: none
 
+.displayinline
+    display: inline-block 
+
 .displayBlock
     display: block
 
-.show
+.showMenu
     display: block
-    position: absolute
     background-color: $nav-background
     margin-top: 46px
     margin-left: 8px
-    margin-bottom: 0px
-    padding: 0px
     width: 240px
     height: 64px
-    align-content: center
 
-.show:after 
+.showMenu:after 
     content: ''
     position: absolute
     top: 0
     left: 6%
     width: 0
     height: 0
-    border: 5px solid transparent
+    border: 5.5px solid transparent
     border-bottom-color: $nav-background
     border-top: 0
-    margin-left: -5px
-    margin-top: -5px
+    margin-left: -5.5px
+    margin-top: -5.5px
 
 .keyColor
     color: lightgray
@@ -104,9 +108,9 @@ $white-font: white
     width: 100%
     height: 24px
     text-align: left
-    font-size: 12px
+    font-size: $standard-font-size
     &:hover
-        background-color: #18a0fb
+        background-color: $nav-blue
 
 .handButtonHover
     &:hover
@@ -117,18 +121,10 @@ $white-font: white
             transition: margin-top 0s linear 1s
 
 .handHover
-    opacity: 0
-    display: flex
-    position: absolute
     height: 24px
     width: 88px
     margin-top: -72px
     margin-left: -28px
-    background-color: black
-    font-size: 12px
-    color: white
-    align-items: center
-    justify-content: center
 
 .handHover:after 
     content: ''
@@ -144,7 +140,7 @@ $white-font: white
     margin-top: -5.5px
 
 .panSVG
-    fill: white
+    fill: $white-font
     height: 23px
 
 .growMenu
@@ -160,7 +156,7 @@ $white-font: white
     fill: $white-font
     height: 12px
     margin-left: 4px
-    margin-right: 4px
+    margin-right: 8px
 
 .navTitle
     width: 20%
@@ -178,18 +174,10 @@ $white-font: white
             transition: margin-top 0s linear 1s
 
 .anonymousHover
-    opacity: 0
-    display: flex
-    position: absolute
     height: 24px
     width: 80px
     margin-top: -72px
     margin-left: -28px
-    background-color: black
-    font-size: 12px
-    color: white
-    align-items: center
-    justify-content: center
 
 .anonymousHover:after 
     content: ''
@@ -213,7 +201,7 @@ $white-font: white
     border: .6px solid $white-font
     border-radius: 5px
     color: $white-font
-    font-size: 12px
+    font-size: $standard-font-size
     margin-top: 3px
 
 .playButton
@@ -226,18 +214,10 @@ $white-font: white
             transition: margin-top 0s linear 1s
 
 .playHover
-    opacity: 0
-    display: flex
-    position: absolute
     height: 24px
     width: 56px
     margin-top: -72px
     margin-left: -16px
-    background-color: black
-    font-size: 12px
-    color: white
-    align-items: center
-    justify-content: center
 
 .playHover:after 
     content: ''
@@ -259,7 +239,7 @@ $white-font: white
     display: flex
     justify-content: center
     width: 60px
-    height: 40px
+    height: $standard-height
     color: lightgray
     font-size: 10px
     background-color: $nav-background
@@ -274,9 +254,9 @@ $white-font: white
     background-color: $nav-background
 
 .zoomButtonClicked
-    background-color: #18a0fb
+    background-color: $nav-blue
     &:hover
-        background-color: #18a0fb
+        background-color: $nav-blue
 
 .arrowDownSVG
     fill: $white-font
@@ -285,11 +265,10 @@ $white-font: white
 
 .zoomMemu
     right: 4px
-    position: absolute 
     border-radius: 2px
     margin-top: 45px
     background-color: $nav-background
-    height: 372px
+    height: 368px
     width: 232px
 
 .zoomMemu:after 
@@ -312,9 +291,12 @@ $white-font: white
     background-color: $nav-background
     color: $white-font
     border: none
-    font-size: 12px
+    font-size: $standard-font-size
     &:hover
-        background-color: #18a0fb
+        background-color: $nav-blue
+
+.zoomTopButton
+    margin-top: 2px
 
 .zoomInput
     display: flex
@@ -322,18 +304,18 @@ $white-font: white
     margin-right: auto
     margin-left: auto
     background-color: $nav-background
-    border: 2px solid #18a0fb
+    border: 2px solid $nav-blue
     color: $white-font
     width: 80%
     height: 18px
-    font-size: 12px
+    font-size: $standard-font-size
 
 .keyShortCuts
     float: right
     color: #C0C0C0
 
 .arrowRightSVG
-    fill: white
+    fill: $white-font
     height: 12px
     float: right
 
@@ -342,7 +324,7 @@ $white-font: white
     border-width: .5px
 
 .dotSVG
-    fill: white
+    fill: $white-font
     height: 6px
     margin-left: 6px
     margin-right: 10px
@@ -350,11 +332,22 @@ $white-font: white
 .zoomSpacer
     margin-right: 20px
 
-.zoomDisplayinline
-    display: inline-block 
+.pixelMenu
+    position: absolute
+    height: 84px
+    width: 180px
+    margin-top: -6px
+    right: 232px
+    border-radius: 2px
+    background-color: $nav-background
 
-.zoomCheckedSVG
-    fill: $white-font
-    height: 12px
-    margin-left: 4px
-    margin-right: 8px
+.pixelMenuButton
+    width: 100%
+    height: 23px
+    text-align: left
+    background-color: $nav-background
+    color: $white-font
+    border: none
+    font-size: $standard-font-size
+    &:hover
+        background-color: $nav-blue
