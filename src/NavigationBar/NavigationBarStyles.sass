@@ -1,14 +1,15 @@
-$nav-font: white
 $nav-background: #2c2c2c
+$nav-blue: #18a0fb
 $standard-height: 40px
 $standard-width: 40px
 $white-font: white
+$standard-font-size: 12px
 
 .navBar
     display: flex
-    height: 40px
+    height: $standard-height
     background-color: $nav-background
-    color: $nav-font
+    color: $white-font
     left: 0px
     right: 0px
     top: 0px
@@ -17,12 +18,145 @@ $white-font: white
 .standardButton 
     height: $standard-height
     width: $standard-width
+    border: none
+    background-color: $nav-background
+    outline: none
 
-.menuIcon
+.menuButtonHover
+    &:hover
+        background-color: black
+        .menuHover
+            opacity: 1
+            margin-top: 14px
+            transition: opacity 0s linear 1s
+            transition: margin-top 0s linear 1s
+
+.standardBubbleSquare
+    position: absolute
+    font-size: $standard-font-size
     color: $white-font
 
-.panMenuIcon
+.standardDisplayFlex
+    display: flex
+    justify-content: center
+    align-items: center
+    opacity: 0
+    background-color: black
+
+.menuHover
+    height: 24px
+    width: 108px
+    margin-top: -72px
+
+.menuHover:after 
+    content: ''
+    position: absolute
+    top: 0
+    left: 12%
+    width: 0
+    height: 0
+    border: 5.5px solid transparent
+    border-bottom-color: black
+    border-top: 0
+    margin-left: -5.5px
+    margin-top: -5.5px
+
+.menuSVG
+    fill: $white-font
+    height: 20px
+
+.displayNone
+    display: none
+
+.displayinline
+    display: inline-block 
+
+.displayBlock
+    display: block
+
+.showMenu
+    display: block
+    background-color: $nav-background
+    margin-top: 46px
+    margin-left: 8px
+    width: 240px
+    height: 64px
+
+.showMenu:after 
+    content: ''
+    position: absolute
+    top: 0
+    left: 6%
+    width: 0
+    height: 0
+    border: 5.5px solid transparent
+    border-bottom-color: $nav-background
+    border-top: 0
+    margin-left: -5.5px
+    margin-top: -5.5px
+
+.keyColor
+    color: lightgray
+
+.topMenu
+    margin-top: 8px
+    
+.subButton
+    background-color: $nav-background
+    border: none
     color: $white-font
+    width: 100%
+    height: 24px
+    text-align: left
+    font-size: $standard-font-size
+    &:hover
+        background-color: $nav-blue
+
+.handButtonHover
+    &:hover
+        .handHover
+            opacity: 1
+            margin-top: 14px
+            transition: opacity 0s linear 1s
+            transition: margin-top 0s linear 1s
+
+.handHover
+    height: 24px
+    width: 88px
+    margin-top: -72px
+    margin-left: -28px
+
+.handHover:after 
+    content: ''
+    position: absolute
+    top: 0
+    left: 50%
+    width: 0
+    height: 0
+    border: 5.5px solid transparent
+    border-bottom-color: black
+    border-top: 0
+    margin-left: -5.5px
+    margin-top: -5.5px
+
+.panSVG
+    fill: $white-font
+    height: 23px
+
+.growMenu
+    position: fixed
+    margin-left: -12px
+    margin-top: 10px
+    background-color: $nav-background
+
+.spacer
+    margin-left: 20px
+
+.checkedSVG
+    fill: $white-font
+    height: 12px
+    margin-left: 4px
+    margin-right: 8px
 
 .navTitle
     width: 20%
@@ -30,12 +164,239 @@ $white-font: white
     text-align: center
     margin: auto
 
-.helpIcon
-    color: #ff4500
+.anonymousButton
+    margin-right: 6px
+    &:hover
+        .anonymousHover
+            opacity: 1
+            margin-top: 10px
+            transition: opacity 0s linear 1s
+            transition: margin-top 0s linear 1s
 
-.rightArrowIcon
+.anonymousHover
+    height: 24px
+    width: 80px
+    margin-top: -72px
+    margin-left: -28px
+
+.anonymousHover:after 
+    content: ''
+    position: absolute
+    top: 0
+    left: 50%
+    width: 0
+    height: 0
+    border: 5.5px solid transparent
+    border-bottom-color: black
+    border-top: 0
+    margin-left: -5.5px
+    margin-top: -5.5px
+
+.helpSVG
+    fill: #ff4500
+
+.logInButton
+    height: 32px
+    width: 64px
+    border: .6px solid $white-font
+    border-radius: 5px
     color: $white-font
-    font-size: 25px
+    font-size: $standard-font-size
+    margin-top: 3px
 
-.expandIcon
+.playButton
+    &:hover
+        background-color: black
+        .playHover
+            opacity: 1
+            margin-top: 10px
+            transition: opacity 0s linear 1s
+            transition: margin-top 0s linear 1s
+
+.playHover
+    height: 24px
+    width: 56px
+    margin-top: -72px
+    margin-left: -16px
+
+.playHover:after 
+    content: ''
+    position: absolute
+    top: 0
+    left: 50%
+    width: 0
+    height: 0
+    border: 5.5px solid transparent
+    border-bottom-color: black
+    border-top: 0
+    margin-left: -5.5px
+    margin-top: -5.5px
+
+.playArrowSVG
+    fill: $white-font
+
+.expandButton
+    display: flex
+    justify-content: center
+    width: 60px
+    height: $standard-height
+    color: lightgray
     font-size: 10px
+    background-color: $nav-background
+    border: none
+    outline: none
+    &:hover
+        background-color: black
+        .arrowDownSVG
+            margin-top: 0px
+
+.zoomButtonUnClicked
+    background-color: $nav-background
+
+.zoomButtonClicked
+    background-color: $nav-blue
+    &:hover
+        background-color: $nav-blue
+
+.arrowDownSVG
+    fill: $white-font
+    height: 16px
+    margin-top: -3px
+
+.zoomMemu
+    right: 4px
+    border-radius: 2px
+    margin-top: 45px
+    background-color: $nav-background
+    height: 368px
+    width: 232px
+    box-shadow: 1px 0px 4px black
+
+.zoomMemu:after 
+    content: ''
+    position: absolute
+    top: 0
+    left: 95%
+    width: 0
+    height: 0
+    border: 5.5px solid transparent
+    border-bottom-color: $nav-background
+    border-top: 0
+    margin-left: -5.5px
+    margin-top: -5.5px
+
+.zoomButton
+    width: 100%
+    height: 23px
+    text-align: left
+    background-color: $nav-background
+    color: $white-font
+    border: none
+    font-size: $standard-font-size
+    &:hover
+        background-color: $nav-blue
+
+.zoomTopButton
+    margin-top: 2px
+
+.zoomInput
+    display: flex
+    margin-top: 8px
+    margin-right: auto
+    margin-left: auto
+    background-color: $nav-background
+    border: 2px solid $nav-blue
+    color: $white-font
+    width: 80%
+    height: 18px
+    font-size: $standard-font-size
+
+.keyShortCuts
+    float: right
+    color: #C0C0C0
+
+.arrowRightSVG
+    fill: $white-font
+    height: 12px
+    float: right
+
+.horizontalLines
+    border-color: gray
+    border-width: .5px
+
+.dotSVG
+    fill: $white-font
+    height: 6px
+    margin-left: 6px
+    margin-right: 10px
+
+.zoomSpacer
+    margin-right: 20px
+
+.pixelMenu
+    position: absolute
+    height: 80px
+    width: 180px
+    margin-top: -6px
+    right: 232px
+    border-radius: 2px
+    box-shadow: 0px 0px 3px black
+    background-color: $nav-background
+
+.pixelMenuButton
+    width: 100%
+    height: 23px
+    text-align: left
+    background-color: $nav-background
+    color: $white-font
+    border: none
+    font-size: $standard-font-size
+    &:hover
+        background-color: $nav-blue
+
+.pixelMenutop
+    margin-top: 6px
+
+.pixelMenuHoverBlue
+    background-color: $nav-blue
+
+.pixelMenuHoverNormal
+    background-color: $nav-background
+
+.onclickPopUpMessage
+    opacity: 0
+    display: flex
+    position: absolute
+    justify-content: center
+    align-items: center
+    left: 0
+    right: 0
+    top: 110%
+    margin: auto
+    background-color: black
+    height: 36px
+    border-radius: 4px
+    color: $white-font
+    font-size: 14px
+    font-family: sans-serif
+
+.shortPopUpMessage
+    width: 104px
+
+.longPopUpMessage
+    width: 196px
+
+.displayAnimation
+    animation-name: example
+    animation-duration: 2s
+
+@keyframes example
+    0% 
+        top: 93%
+    25% 
+        opacity: 1
+    75% 
+        opacity: 1
+    100%
+        top: 93%
+        opacity: 0

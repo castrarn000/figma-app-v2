@@ -29,7 +29,6 @@ const UsersTable = () => {
 
     useEffect(() => {
         if(ifLoaded){
-            console.log(`come in`)
             mainRef.current.scrollIntoView({inline: 'center'});
         }
       });
