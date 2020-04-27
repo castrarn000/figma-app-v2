@@ -270,6 +270,7 @@ $standard-font-size: 12px
     background-color: $nav-background
     height: 368px
     width: 232px
+    box-shadow: 1px 0px 4px black
 
 .zoomMemu:after 
     content: ''
@@ -334,11 +335,12 @@ $standard-font-size: 12px
 
 .pixelMenu
     position: absolute
-    height: 84px
+    height: 80px
     width: 180px
     margin-top: -6px
     right: 232px
     border-radius: 2px
+    box-shadow: 0px 0px 3px black
     background-color: $nav-background
 
 .pixelMenuButton
@@ -351,3 +353,50 @@ $standard-font-size: 12px
     font-size: $standard-font-size
     &:hover
         background-color: $nav-blue
+
+.pixelMenutop
+    margin-top: 6px
+
+.pixelMenuHoverBlue
+    background-color: $nav-blue
+
+.pixelMenuHoverNormal
+    background-color: $nav-background
+
+.onclickPopUpMessage
+    opacity: 0
+    display: flex
+    position: absolute
+    justify-content: center
+    align-items: center
+    left: 0
+    right: 0
+    top: 110%
+    margin: auto
+    background-color: black
+    height: 36px
+    border-radius: 4px
+    color: $white-font
+    font-size: 14px
+    font-family: sans-serif
+
+.shortPopUpMessage
+    width: 104px
+
+.longPopUpMessage
+    width: 196px
+
+.displayAnimation
+    animation-name: example
+    animation-duration: 2s
+
+@keyframes example
+    0% 
+        top: 93%
+    25% 
+        opacity: 1
+    75% 
+        opacity: 1
+    100%
+        top: 93%
+        opacity: 0
