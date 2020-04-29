@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.sass';
-import NavigationBar from './NavigationBar/NavigationBar'
-import SignUpBox from './SignUpBox/SignUpBox'
+import Modal from './SignUpBox/Modal';
+import NavigationBar from './NavigationBar/NavigationBar';
+import SignUpBox from './SignUpBox/SignUpBox';
 import UsersTable from './UsersTable/UsersTable';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         <NavigationBar />
         <SignUpBox />
       </div>
+      <Modal />
       <UsersTable />
     </div>
   );

@@ -17,3 +17,10 @@ export const ifError = (error) => {
         payload: error
     };
 };
+
+export const isModalOpen = (openState) => {
+    return {
+        type: 'isModalOpen',
+        payload: openState
+    };
+};
