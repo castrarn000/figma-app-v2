@@ -18,7 +18,7 @@ const SignUpBox = () => {
             <span className='createAccount'>
                 <span className='welcomeFigma'>Welcome to Figma!</span> Create an account to edit and collaborate on this file.
             </span>
-            <span>
+            <span className='buttons'>
                 <Button className='googleSignIn' onClick={handleSignUp}>
                     <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt='' className='googleIcon' /> Sign up with Google
                 </Button>
