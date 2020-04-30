@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { isModalOpen } from '../actions/index';
 import './NavigationBarStyles.sass';
 
 const NavigationBar = () => {
@@ -10,6 +12,12 @@ const NavigationBar = () => {
         { spacerClass: 'displayNone', svgClass: 'displayinline', prevSelected: 0 },
         { spacerClass: 'displayinline', svgClass: 'displayNone' }
     ]);
+
+    const dispath = useDispatch();
+
+    const handleSignUp = () => {
+        dispath(isModalOpen(true));
+    };
 
     const [zoomPercentage, setZoomPercentage] = useState('100%');
     const [zoomMenuAnimation, setZoomMenuAnimation] = useState([
@@ -341,7 +349,7 @@ const NavigationBar = () => {
                 </div>
             </button>
 
-            <button className='standardButton logInButton'>
+            <button className='standardButton logInButton' onClick={handleSignUp}>
                 Log in
             </button>
 
