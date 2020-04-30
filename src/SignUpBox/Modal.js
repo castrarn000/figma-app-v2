@@ -13,34 +13,29 @@ const Modal = () => {
         dispath(isModalOpen(false));
     };
 
-    const handleEnter = (event) => {
-        if (event.key === 'Enter') {
-            console.log('got enter')
-        }
-    }
-
     const body = (
         <div className='modalBody'>
-            <div> Create an account to collaborate on </div>
-            <div> "user" </div>
-            <button className='googleSignIn modalButton' onClick={handleClose}>
-                <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt='' className='googleIcon' /> Sign up with Google
+            <div className='spacer'/>
+            <div className='marginTop'> Create an account to collaborate on </div>
+            <div className='marginBottom'> "users" </div>
+            <button className='standardComp googleButton' onClick={handleClose}>
+                <img src='https://img.icons8.com/color/16/000000/google-logo.png' alt='' className='googleIcon' /> Sign up with Google
             </button>
-            <div> or </div>
+            <div className='marginBottom or'> or </div>
             <div>
-                <InputBase placeholder='Email' onKeyPress={handleEnter} className='modalButton' />
+                <InputBase placeholder='Email' className='standardComp inputFocus'/>
             </div>
             <div>
-                <InputBase placeholder='Password' onKeyPress={handleEnter} className='modalButton' />
+                <InputBase placeholder='Password' className='standardComp inputFocus'/>
             </div>
-            <button onClick={handleClose} className='modalButton'>
+            <button onClick={handleClose} className='standardComp createAccountButton'>
                 Create Account
             </button>
-            <div>
+            <div className='blueText marginTop' onClick={handleClose}>
                 Sign up with SAML SSO
             </div>
-            <div>
-                Already have an account? <span> Log in </span>
+            <div className='marginTop grayColor haveAccount'>
+                Already have an account? <span className='blueText' onClick={handleClose}> Log in </span>
             </div>
         </div>
     );
