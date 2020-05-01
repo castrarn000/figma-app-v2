@@ -7,28 +7,93 @@
     width: 3000px
 
 .tableWrapper
-    width: 1200px
+    width: 980px
     z-index: -2
     font-family: sans-serif
-    color: lightgray
+    color: silver
     font-size: 12px
-    padding-top: 108px
+    padding-top: 172px
 
 .tableBlock
     background-color: white
-    min-height: 1000px
+    min-height: 640px
+
+.tableHeader
+    font-size: 12px!important
+    color: gray!important
 
 .innerUsers
-    font-size: 22px
+    display: flex
+    font-size: 16px
     margin-left: 32px
     color: black
     height: 52px
     align-items: center
-    padding-top: 32px
+    padding-top: 12px
+    padding-bottom: 24px
+
+.nameArrow
+    display: flex
+    align-items: center
+
+.sortIcon
+    font-size: 20px!important
+
+.fontSize
+    font-size: 12px!important
+
+.users
+    padding-top: -8px
+    margin-left: 12px
+
+.tableHolder
+    margin: auto
+    width: 94%!important
 
 .usersNames
     font-weight: bold
-    
+    display: flex
+    align-items: center
+    font-size: 12px
+
+.accountImg
+    font-size: 32px!important
+    margin-left: -4px!important
+    margin-right: 6px!important
+
 .arrowDownIcon
     color: gray
+    font-size: 18px!important
+
+.tag
+    background-color: #E8E8E8
+    border: 5px solid #E8E8E8
+
+.MuiTableCell-root
+    padding-top: 7px!important
+    padding-bottom: 7px!important
+
+.loadingContainer 
+    margin-top: 22.5%
+
+.loader 
     margin: auto
+    border: 16px solid silver
+    border-radius: 50%
+    border-top: 16px solid #3498db
+    width: 200px
+    height: 200px
+    -webkit-animation: spin 2s linear infinite
+    animation: spin 2s linear infinite
+
+@-webkit-keyframes spin 
+    0% 
+    -webkit-transform: rotate(0deg)
+    100%
+    -webkit-transform: rotate(360deg)
+
+@keyframes spin 
+    0%  
+        transform: rotate(0deg)
+    100%  
+        transform: rotate(360deg)

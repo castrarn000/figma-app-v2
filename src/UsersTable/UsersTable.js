@@ -28,10 +28,10 @@ const UsersTable = () => {
     }, []);
 
     useEffect(() => {
-        if(ifLoaded){
-            mainRef.current.scrollIntoView({inline: 'center'});
+        if (ifLoaded) {
+            mainRef.current.scrollIntoView({ inline: 'center' });
         }
-      });
+    });
 
     function loadUsers() {
         fetch(USERS_API)
@@ -58,37 +58,51 @@ const UsersTable = () => {
                 Users
                 <div className='tableBlock'>
                     <div className='innerUsers'>
-                        <SortIcon />  &nbsp;  Users
+                        <SortIcon className='sortIcon' />  &nbsp;  <span className='users'> Users </span>
                     </div>
-                    <TableContainer className='tableUsers'>
-                        <Table aria-label='All users tabble' style={{ borderTop: '1px solid lightgray' }}>
+                    <TableContainer className='tableHolder'>
+                        <Table aria-label='All users tabble' style={{ borderTop: '1px solid lightgray' }} >
                             <TableHead>
                                 <TableRow>
-                                    <TableCell> Name <ArrowDownwardIcon className='arrowDownIcon' /> </TableCell>
-                                    <TableCell> Email </TableCell>
-                                    <TableCell> Phone </TableCell>
-                                    <TableCell> Company Tags </TableCell>
-                                    <TableCell> Website </TableCell>
+                                    <TableCell className='tableHeader fontSize'>
+                                        <span className='nameArrow'>
+                                            Name <ArrowDownwardIcon className='arrowDownIcon' />
+                                        </span>
+                                    </TableCell>
+                                    <TableCell className='tableHeader fontSize'>
+                                        Email
+                                    </TableCell>
+                                    <TableCell className='tableHeader fontSize'>
+                                        Phone
+                                    </TableCell>
+                                    <TableCell className='tableHeader fontSize'>
+                                        Company Tags
+                                     </TableCell>
+                                    <TableCell className='tableHeader fontSize'>
+                                        Website
+                                    </TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                                 {allUsers.map(user => (
-                                    <TableRow key={user.id}>
+                                    <TableRow key={user.id} className='tableRow'>
                                         <TableCell component='th' scope='row'>
-                                            <span className='usersNames'>
-                                                <AccountCircleIcon fontSize='large' /> {user.name}
+                                            <span className='usersNames fontSize'>
+                                                <AccountCircleIcon className='accountImg' /> {user.name}
                                             </span>
                                         </TableCell>
-                                        <TableCell>
+                                        <TableCell className='fontSize'>
                                             {user.email}
                                         </TableCell>
-                                        <TableCell>
+                                        <TableCell className='fontSize'>
                                             {user.phone}
                                         </TableCell>
-                                        <TableCell>
-                                            {user.company.bs}
+                                        <TableCell className='fontSize'>
+                                            <span className='tag'>
+                                                {user.company.bs}
+                                            </span>
                                         </TableCell>
-                                        <TableCell>
+                                        <TableCell className='fontSize'>
                                             {user.website}
                                         </TableCell>
                                     </TableRow>
@@ -100,8 +114,8 @@ const UsersTable = () => {
             </div>
         </div>
         :
-        <div>
-                still waiting
+        <div class='loadingContainer'>
+            <div class='loader'/>
         </div>
     );
 }
